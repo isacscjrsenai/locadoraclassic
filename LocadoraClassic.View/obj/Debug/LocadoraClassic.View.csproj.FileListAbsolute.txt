@@ -1,0 +1,11 @@
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\LocadoraClassic.View.exe.config
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\LocadoraClassic.View.exe
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\LocadoraClassic.View.pdb
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\obj\Debug\LocadoraClassic.View.csproj.AssemblyReference.cache
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\obj\Debug\LocadoraClassic.View.csproj.SuggestedBindingRedirects.cache
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\obj\Debug\LocadoraClassic.View.Properties.Resources.resources
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\obj\Debug\LocadoraClassic.View.csproj.GenerateResource.cache
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\obj\Debug\LocadoraClassic.View.csproj.CoreCompileInputs.cache
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\obj\Debug\LocadoraClassic.View.exe
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\obj\Debug\LocadoraClassic.View.pdb
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\obj\Debug\LocadoraClassic.View.frmMenu.resources
