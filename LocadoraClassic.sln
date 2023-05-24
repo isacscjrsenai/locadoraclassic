@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraClassic.BO", "Locad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraClassic.DAL", "LocadoraClassic.DAL\LocadoraClassic.DAL.csproj", "{97330F57-3E51-4DE4-8FE9-3B753AA27A08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraClassic.VO", "LocadoraClassic.VO\LocadoraClassic.VO.csproj", "{D5F2F843-1349-4880-ADE2-CD51DF1B7954}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{97330F57-3E51-4DE4-8FE9-3B753AA27A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97330F57-3E51-4DE4-8FE9-3B753AA27A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97330F57-3E51-4DE4-8FE9-3B753AA27A08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5F2F843-1349-4880-ADE2-CD51DF1B7954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F2F843-1349-4880-ADE2-CD51DF1B7954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F2F843-1349-4880-ADE2-CD51DF1B7954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F2F843-1349-4880-ADE2-CD51DF1B7954}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

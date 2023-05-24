@@ -19,22 +19,38 @@ namespace LocadoraClassic.View
 
         private void generoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmCadastroGenero().Show();
+            
+            FrmCadastroGenero frmCadastroGenero = new FrmCadastroGenero();
+            frmCadastroGenero.MdiParent = this;
+            frmCadastroGenero.Show();
         }
 
         private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmCadastroCategoria().Show();
+            FrmCadastroCategoria frmCadastroCategoria = new FrmCadastroCategoria();
+            frmCadastroCategoria.MdiParent = this;
+            frmCadastroCategoria.Show();
         }
 
         private void filmesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            new FrmCadastroFilme().Show();
+            FrmCadastroFilme frmCadastroFilme = new FrmCadastroFilme();
+            frmCadastroFilme.MdiParent = this;
+            frmCadastroFilme.Show();
         }
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmCadastroCliente().Show();
+            FrmCadastroCliente frmCadastroCliente =new FrmCadastroCliente();
+            frmCadastroCliente.MdiParent = this;
+            frmCadastroCliente.Show();
+        }
+
+        private void realizarLocaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLocacao frmLocacao = new FrmLocacao();
+            frmLocacao.MdiParent = this;
+            frmLocacao.Show();
         }
     }
 }

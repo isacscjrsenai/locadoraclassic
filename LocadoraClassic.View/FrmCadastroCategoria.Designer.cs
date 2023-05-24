@@ -29,34 +29,40 @@
         private void InitializeComponent()
         {
             this.btnCadastrarCategoria = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtValorDiaria = new System.Windows.Forms.TextBox();
+            this.txtNomeCategoria = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.dvgCategoria = new System.Windows.Forms.DataGridView();
+            this.btnDeletarCategoria = new System.Windows.Forms.Button();
+            this.btnModificarCategoria = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgCategoria)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCadastrarCategoria
             // 
-            this.btnCadastrarCategoria.Location = new System.Drawing.Point(236, 98);
+            this.btnCadastrarCategoria.Location = new System.Drawing.Point(512, 101);
             this.btnCadastrarCategoria.Name = "btnCadastrarCategoria";
             this.btnCadastrarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrarCategoria.TabIndex = 0;
             this.btnCadastrarCategoria.Text = "Cadastrar";
             this.btnCadastrarCategoria.UseVisualStyleBackColor = true;
+            this.btnCadastrarCategoria.Click += new System.EventHandler(this.btnCadastrarCategoria_Click);
             // 
-            // textBox1
+            // txtValorDiaria
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtValorDiaria.Location = new System.Drawing.Point(12, 64);
+            this.txtValorDiaria.Name = "txtValorDiaria";
+            this.txtValorDiaria.Size = new System.Drawing.Size(100, 20);
+            this.txtValorDiaria.TabIndex = 1;
+            this.txtValorDiaria.TextChanged += new System.EventHandler(this.txtValorDiaria_TextChanged);
             // 
-            // textBox2
+            // txtNomeCategoria
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(299, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtNomeCategoria.Location = new System.Drawing.Point(12, 25);
+            this.txtNomeCategoria.Name = "txtNomeCategoria";
+            this.txtNomeCategoria.Size = new System.Drawing.Size(575, 20);
+            this.txtNomeCategoria.TabIndex = 2;
             // 
             // label1
             // 
@@ -76,18 +82,49 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Valor da Diária";
             // 
+            // dvgCategoria
+            // 
+            this.dvgCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgCategoria.Location = new System.Drawing.Point(12, 130);
+            this.dvgCategoria.Name = "dvgCategoria";
+            this.dvgCategoria.Size = new System.Drawing.Size(575, 312);
+            this.dvgCategoria.TabIndex = 5;
+            // 
+            // btnDeletarCategoria
+            // 
+            this.btnDeletarCategoria.Location = new System.Drawing.Point(512, 448);
+            this.btnDeletarCategoria.Name = "btnDeletarCategoria";
+            this.btnDeletarCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletarCategoria.TabIndex = 6;
+            this.btnDeletarCategoria.Text = "Deletar";
+            this.btnDeletarCategoria.UseVisualStyleBackColor = true;
+            this.btnDeletarCategoria.Click += new System.EventHandler(this.btnDeletarCategoria_Click);
+            // 
+            // btnModificarCategoria
+            // 
+            this.btnModificarCategoria.Location = new System.Drawing.Point(431, 448);
+            this.btnModificarCategoria.Name = "btnModificarCategoria";
+            this.btnModificarCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarCategoria.TabIndex = 7;
+            this.btnModificarCategoria.Text = "Modificar";
+            this.btnModificarCategoria.UseVisualStyleBackColor = true;
+            // 
             // FrmCadastroCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 136);
+            this.ClientSize = new System.Drawing.Size(599, 481);
+            this.Controls.Add(this.btnModificarCategoria);
+            this.Controls.Add(this.btnDeletarCategoria);
+            this.Controls.Add(this.dvgCategoria);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNomeCategoria);
+            this.Controls.Add(this.txtValorDiaria);
             this.Controls.Add(this.btnCadastrarCategoria);
             this.Name = "FrmCadastroCategoria";
             this.Text = "Locadora Classic - Cadastro de Categoria";
+            ((System.ComponentModel.ISupportInitialize)(this.dvgCategoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,9 +133,12 @@
         #endregion
 
         private System.Windows.Forms.Button btnCadastrarCategoria;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtValorDiaria;
+        private System.Windows.Forms.TextBox txtNomeCategoria;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dvgCategoria;
+        private System.Windows.Forms.Button btnDeletarCategoria;
+        private System.Windows.Forms.Button btnModificarCategoria;
     }
 }

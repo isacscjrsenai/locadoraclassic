@@ -50,7 +50,8 @@
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuStrip1.BackgroundImage = global::LocadoraClassic.View.Properties.Resources.charlie_4;
+            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStrip1.Font = new System.Drawing.Font("Script MT Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(64, 64);
@@ -61,7 +62,7 @@
             this.gráficosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(147, 561);
+            this.menuStrip1.Size = new System.Drawing.Size(147, 1009);
             this.menuStrip1.Stretch = false;
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -73,12 +74,14 @@
             this.categoriaToolStripMenuItem,
             this.filmesToolStripMenuItem1,
             this.clienteToolStripMenuItem});
+            this.cadastroToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(140, 33);
             this.cadastroToolStripMenuItem.Text = "Cadastros";
             // 
             // generoToolStripMenuItem
             // 
+            this.generoToolStripMenuItem.Image = global::LocadoraClassic.View.Properties.Resources.drama;
             this.generoToolStripMenuItem.Name = "generoToolStripMenuItem";
             this.generoToolStripMenuItem.Size = new System.Drawing.Size(228, 70);
             this.generoToolStripMenuItem.Text = "Gênero";
@@ -86,6 +89,7 @@
             // 
             // categoriaToolStripMenuItem
             // 
+            this.categoriaToolStripMenuItem.Image = global::LocadoraClassic.View.Properties.Resources.produtos;
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
             this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(228, 70);
             this.categoriaToolStripMenuItem.Text = "Categoria";
@@ -112,6 +116,7 @@
             this.locaçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.realizarLocaçãoToolStripMenuItem,
             this.relatórioDiárioToolStripMenuItem});
+            this.locaçãoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.locaçãoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.locaçãoToolStripMenuItem.Name = "locaçãoToolStripMenuItem";
             this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(140, 33);
@@ -122,6 +127,7 @@
             this.realizarLocaçãoToolStripMenuItem.Name = "realizarLocaçãoToolStripMenuItem";
             this.realizarLocaçãoToolStripMenuItem.Size = new System.Drawing.Size(261, 34);
             this.realizarLocaçãoToolStripMenuItem.Text = "Realizar Locação";
+            this.realizarLocaçãoToolStripMenuItem.Click += new System.EventHandler(this.realizarLocaçãoToolStripMenuItem_Click);
             // 
             // relatórioDiárioToolStripMenuItem
             // 
@@ -135,6 +141,7 @@
             this.pendentesToolStripMenuItem,
             this.faturamentoDoDiaToolStripMenuItem,
             this.faturamentoDoMêsToolStripMenuItem});
+            this.relátoriosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.relátoriosToolStripMenuItem.Name = "relátoriosToolStripMenuItem";
             this.relátoriosToolStripMenuItem.Size = new System.Drawing.Size(140, 33);
             this.relátoriosToolStripMenuItem.Text = "Relatórios";
@@ -162,6 +169,7 @@
             this.gráficosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gráficoPizzaDeClientesPorEndereçoToolStripMenuItem,
             this.gráficoDeBarraDeAtrasadosPorMêsToolStripMenuItem});
+            this.gráficosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gráficosToolStripMenuItem.Name = "gráficosToolStripMenuItem";
             this.gráficosToolStripMenuItem.Size = new System.Drawing.Size(140, 33);
             this.gráficosToolStripMenuItem.Text = "Gráficos";
@@ -185,13 +193,14 @@
             this.AutoSize = true;
             this.BackgroundImage = global::LocadoraClassic.View.Properties.Resources.charlie_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1004, 561);
+            this.ClientSize = new System.Drawing.Size(1902, 1009);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1020, 600);
-            this.MinimumSize = new System.Drawing.Size(1020, 600);
+            this.MinimumSize = new System.Drawing.Size(1918, 1048);
             this.Name = "frmMenu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

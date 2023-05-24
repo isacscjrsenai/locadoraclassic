@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNomeGenero = new System.Windows.Forms.TextBox();
             this.btnCadastrarCategoria = new System.Windows.Forms.Button();
+            this.dgvGeneros = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGeneros)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -42,12 +44,12 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Nome";
             // 
-            // textBox2
+            // txtNomeGenero
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(315, 20);
-            this.textBox2.TabIndex = 5;
+            this.txtNomeGenero.Location = new System.Drawing.Point(12, 25);
+            this.txtNomeGenero.Name = "txtNomeGenero";
+            this.txtNomeGenero.Size = new System.Drawing.Size(315, 20);
+            this.txtNomeGenero.TabIndex = 5;
             // 
             // btnCadastrarCategoria
             // 
@@ -57,17 +59,28 @@
             this.btnCadastrarCategoria.TabIndex = 4;
             this.btnCadastrarCategoria.Text = "Cadastrar";
             this.btnCadastrarCategoria.UseVisualStyleBackColor = true;
+            this.btnCadastrarCategoria.Click += new System.EventHandler(this.btnCadastrarCategoria_Click);
+            // 
+            // dgvGeneros
+            // 
+            this.dgvGeneros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGeneros.Location = new System.Drawing.Point(15, 115);
+            this.dgvGeneros.Name = "dgvGeneros";
+            this.dgvGeneros.Size = new System.Drawing.Size(312, 359);
+            this.dgvGeneros.TabIndex = 7;
             // 
             // FrmCadastroGenero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 100);
+            this.ClientSize = new System.Drawing.Size(339, 486);
+            this.Controls.Add(this.dgvGeneros);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNomeGenero);
             this.Controls.Add(this.btnCadastrarCategoria);
             this.Name = "FrmCadastroGenero";
             this.Text = "Locadora Classic - Cadastro de Gênero";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGeneros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -76,7 +89,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNomeGenero;
         private System.Windows.Forms.Button btnCadastrarCategoria;
+        private System.Windows.Forms.DataGridView dgvGeneros;
     }
 }

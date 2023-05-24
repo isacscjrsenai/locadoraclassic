@@ -137,5 +137,31 @@
   <ItemGroup>
     <None Include="Resources\charlie 2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charlie-chaplin-1925-everett.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charlie 4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drama.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\produtos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraClassic.BO\LocadoraClassic.BO.csproj">
+      <Project>{bbd7655c-c846-4308-b410-c77957901a77}</Project>
+      <Name>LocadoraClassic.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraClassic.DAL\LocadoraClassic.DAL.csproj">
+      <Project>{97330f57-3e51-4de4-8fe9-3b753aa27a08}</Project>
+      <Name>LocadoraClassic.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraClassic.VO\LocadoraClassic.VO.csproj">
+      <Project>{d5f2f843-1349-4880-ade2-cd51df1b7954}</Project>
+      <Name>LocadoraClassic.VO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

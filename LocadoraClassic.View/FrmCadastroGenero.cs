@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LocadoraClassic.DAL;
+using LocadoraClassic.VO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,24 @@ namespace LocadoraClassic.View
         public FrmCadastroGenero()
         {
             InitializeComponent();
+            dgvGeneros.DataSource = new GeneroDAL().ObterGeneros().ToList();
+        }
+
+        private void btnCadastrarCategoria_Click(object sender, EventArgs e)
+        {
+            var nomeGenero = txtNomeGenero.Text;
+            Genero genero = new Genero(nomeGenero);
+            GeneroDAL generoDAL = new GeneroDAL();
+            //Insere no banco de dados
+            generoDAL.InserirGenero(genero);
+            txtNomeGenero.Text = "";
+            CarregarGrid();
+            MessageBox.Show($"Genêro {nomeGenero} inserido");
+        }
+        private void CarregarGrid()
+        {
+            dgvGeneros.DataSource = new GeneroDAL().ObterGeneros().ToList();
+            dgvGeneros.Refresh();
         }
     }
 }

@@ -1,0 +1,6 @@
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.BO\bin\Debug\LocadoraClassic.BO.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.BO\bin\Debug\LocadoraClassic.BO.pdb
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.BO\obj\Debug\LocadoraClassic.BO.csproj.AssemblyReference.cache
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.BO\obj\Debug\LocadoraClassic.BO.csproj.CoreCompileInputs.cache
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.BO\obj\Debug\LocadoraClassic.BO.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.BO\obj\Debug\LocadoraClassic.BO.pdb
