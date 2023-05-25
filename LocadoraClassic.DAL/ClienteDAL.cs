@@ -80,14 +80,14 @@ namespace LocadoraClassic.DAL
         }
 
 
-        public void DeletarCliente(Cliente cliente)
+        public void DeletarCliente(int id)
         {
             Connection.Instance.Open();
             string query = "DELETE FROM cliente WHERE id=@id";
             MySqlCommand cmd = Connection.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
-            cmd.Parameters.Add(new MySqlParameter("@id", cliente.Id));
+            cmd.Parameters.Add(new MySqlParameter("@id", id));
             cmd.ExecuteNonQuery();
             Connection.Instance.Close();
         }

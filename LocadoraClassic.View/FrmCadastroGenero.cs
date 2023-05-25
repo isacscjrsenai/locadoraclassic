@@ -14,6 +14,7 @@ namespace LocadoraClassic.View
 {
     public partial class FrmCadastroGenero : Form
     {
+        GeneroDAL generoDAL = new GeneroDAL();
         public FrmCadastroGenero()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace LocadoraClassic.View
         {
             var nomeGenero = txtNomeGenero.Text;
             Genero genero = new Genero(nomeGenero);
-            GeneroDAL generoDAL = new GeneroDAL();
+           
             //Insere no banco de dados
             generoDAL.InserirGenero(genero);
             txtNomeGenero.Text = "";
@@ -35,6 +36,42 @@ namespace LocadoraClassic.View
         {
             dgvGeneros.DataSource = new GeneroDAL().ObterGeneros().ToList();
             dgvGeneros.Refresh();
+        }
+
+        private void btnDeletarGenero_Click(object sender, EventArgs e)
+        {
+            List<string> generosDeletados = new List<string>();
+            if (dgvGeneros.SelectedRows.Count > 0)
+            {
+                var seletedRows = dgvGeneros.SelectedRows;
+                foreach (DataGridViewRow seletedRow in seletedRows)
+                {
+                    generoDAL.DeletarGenero(Convert.ToInt32(seletedRow.Cells["Id"].Value.ToString()));
+                    generosDeletados.Add(seletedRow.Cells["Nome"].Value.ToString());
+                }
+            }
+            CarregarGrid();
+            MessageBox.Show($"Genero(s): {string.Join(",", generosDeletados)} deletado(s)");
+        }
+
+        private void btnModificarGenero_Click(object sender, EventArgs e)
+        {
+            List<string> categoriasModificadas = new List<string>();
+            if (dgvGeneros.SelectedRows.Count > 0)
+            {
+                var seletedRows = dgvGeneros.SelectedRows;
+                foreach (DataGridViewRow seletedRow in seletedRows)
+                {
+                    int id = Convert.ToInt32(seletedRow.Cells["Id"].Value.ToString());
+                    string nome = seletedRow.Cells["Nome"].Value.ToString();
+                    MessageBox.Show(id.ToString()+" "+nome);
+                    Genero genero = new Genero(id, nome);
+                    generoDAL.AtualizarGenero(genero, id);
+                    categoriasModificadas.Add(seletedRow.Cells["Nome"].Value.ToString());
+                }
+            }
+            CarregarGrid();
+            MessageBox.Show($"Categoria(s): {string.Join(",", categoriasModificadas)} modificadas(s)");
         }
     }
 }

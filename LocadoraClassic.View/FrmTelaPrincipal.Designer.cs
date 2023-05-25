@@ -83,7 +83,7 @@
             // 
             this.generoToolStripMenuItem.Image = global::LocadoraClassic.View.Properties.Resources.drama;
             this.generoToolStripMenuItem.Name = "generoToolStripMenuItem";
-            this.generoToolStripMenuItem.Size = new System.Drawing.Size(228, 70);
+            this.generoToolStripMenuItem.Size = new System.Drawing.Size(227, 70);
             this.generoToolStripMenuItem.Text = "Gênero";
             this.generoToolStripMenuItem.Click += new System.EventHandler(this.generoToolStripMenuItem_Click);
             // 
@@ -91,7 +91,7 @@
             // 
             this.categoriaToolStripMenuItem.Image = global::LocadoraClassic.View.Properties.Resources.produtos;
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(228, 70);
+            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(227, 70);
             this.categoriaToolStripMenuItem.Text = "Categoria";
             this.categoriaToolStripMenuItem.Click += new System.EventHandler(this.categoriaToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             // 
             this.filmesToolStripMenuItem1.Image = global::LocadoraClassic.View.Properties.Resources.rolo_de_filme;
             this.filmesToolStripMenuItem1.Name = "filmesToolStripMenuItem1";
-            this.filmesToolStripMenuItem1.Size = new System.Drawing.Size(228, 70);
+            this.filmesToolStripMenuItem1.Size = new System.Drawing.Size(227, 70);
             this.filmesToolStripMenuItem1.Text = "Filmes";
             this.filmesToolStripMenuItem1.Click += new System.EventHandler(this.filmesToolStripMenuItem1_Click);
             // 
@@ -107,7 +107,7 @@
             // 
             this.clienteToolStripMenuItem.Image = global::LocadoraClassic.View.Properties.Resources.cliente;
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(228, 70);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(227, 70);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
@@ -206,7 +206,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Locadora Classic";
             this.TopMost = true;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

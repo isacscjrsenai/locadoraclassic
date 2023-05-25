@@ -65,14 +65,14 @@ namespace LocadoraClassic.DAL
             Connection.Instance.Close();
             return genero;
         }
-        public void DeletarGenero(Genero genero)
+        public void DeletarGenero(int id)
         {
             Connection.Instance.Open();
             string query = "DELETE FROM genero WHERE id=@nome";
             MySqlCommand cmd = Connection.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
-            cmd.Parameters.Add(new MySqlParameter("@id", genero.Id));
+            cmd.Parameters.Add(new MySqlParameter("@id", id));
             cmd.ExecuteNonQuery();
             Connection.Instance.Close();
         }

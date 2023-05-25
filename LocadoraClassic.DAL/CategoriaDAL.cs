@@ -65,14 +65,14 @@ namespace LocadoraClassic.DAL
             Connection.Instance.Close();
             return categoria;
         }
-        public void DeletarCategoria(Categoria categoria)
+        public void DeletarCategoria(int id)
         {
             Connection.Instance.Open();
             string query = "DELETE FROM categoria WHERE id=@id";
             MySqlCommand cmd = Connection.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
-            cmd.Parameters.Add(new MySqlParameter("@id", categoria.Id));
+            cmd.Parameters.Add(new MySqlParameter("@id", id));
             cmd.ExecuteNonQuery();
             Connection.Instance.Close();
         }

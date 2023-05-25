@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadoraClassic.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,24 @@ namespace LocadoraClassic.View
 {
     public partial class FrmCadastroFilme : Form
     {
+        GeneroDAL generoDAL = new GeneroDAL();
+        CategoriaDAL categoriaDAL = new CategoriaDAL();
+        FilmeDAL filmeDAL = new FilmeDAL();
         public FrmCadastroFilme()
         {
             InitializeComponent();
+            var listaGeneros = new List<string>();
+            var listaCategorias = new List<string>();
+            categoriaDAL.ObterCategorias().ToList().ForEach(categoria => listaCategorias.Add(categoria.Nome));
+            generoDAL.ObterGeneros().ToList().ForEach(genero => listaGeneros.Add(genero.Nome));
+            cbCategoria.DataSource = listaCategorias;
+            cbGenero.DataSource = listaGeneros;
+
+        }
+
+        private void btnCadastrarFilme_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

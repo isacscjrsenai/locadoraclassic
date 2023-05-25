@@ -108,6 +108,7 @@
             this.btnModificarCategoria.TabIndex = 7;
             this.btnModificarCategoria.Text = "Modificar";
             this.btnModificarCategoria.UseVisualStyleBackColor = true;
+            this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click);
             // 
             // FrmCadastroCategoria
             // 

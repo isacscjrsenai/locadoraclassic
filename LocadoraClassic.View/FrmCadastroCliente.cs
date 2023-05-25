@@ -49,5 +49,21 @@ namespace LocadoraClassic.View
             dvgCliente.DataSource = clienteDAL.ObterClientes().ToList();
             dvgCliente.Refresh();
         }
+
+        private void btnDeletarCliente_Click(object sender, EventArgs e)
+        {
+            List<string> clientesDeletados = new List<string>();
+            if (dvgCliente.SelectedRows.Count > 0)
+            {
+                var seletedRows = dvgCliente.SelectedRows;
+                foreach (DataGridViewRow seletedRow in seletedRows)
+                {
+                    clienteDAL.DeletarCliente(Convert.ToInt32(seletedRow.Cells["Id"].Value.ToString()));
+                    clientesDeletados.Add(seletedRow.Cells["Nome"].Value.ToString());
+                }
+            }
+            CarregaGrid();
+            MessageBox.Show($"Categoria(s): {string.Join(",", clientesDeletados)} deletada(s)");
+        }
     }
 }
