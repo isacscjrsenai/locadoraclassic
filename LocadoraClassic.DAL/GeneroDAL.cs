@@ -65,10 +65,29 @@ namespace LocadoraClassic.DAL
             Connection.Instance.Close();
             return genero;
         }
+        public Genero ObterGenero(string nome)
+        {
+            Connection.Instance.Open();
+            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "SELECT * FROM genero WHERE nome=@nome";
+            cmd.Parameters.Add(new MySqlParameter("@nome", nome));
+            //Executa o comando e obter o resultado
+            MySqlDataReader reader = cmd.ExecuteReader();
+            List<Genero> generos = new List<Genero>();
+            reader.Read();
+            Genero genero = new Genero();
+            genero.Id = Convert.ToInt32(reader["id"]);
+            genero.Nome = reader["nome"].ToString();
+            reader.Close();
+            Connection.Instance.Close();
+            return genero;
+        }
+
         public void DeletarGenero(int id)
         {
             Connection.Instance.Open();
-            string query = "DELETE FROM genero WHERE id=@nome";
+            string query = "DELETE FROM genero WHERE id=@id";
             MySqlCommand cmd = Connection.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
@@ -76,15 +95,15 @@ namespace LocadoraClassic.DAL
             cmd.ExecuteNonQuery();
             Connection.Instance.Close();
         }
-        public void AtualizarGenero(Genero genero, int id)
+        public void AtualizarGenero(Genero genero)
         {
             Connection.Instance.Open();
-            string query = "UPDATE categoria SET nome=@nome WHERE id=@id";
+            string query = "UPDATE genero SET nome=@nome WHERE id=@id";
             MySqlCommand cmd = Connection.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.Parameters.Add(new MySqlParameter("@nome", genero.Nome));
-            cmd.Parameters.Add(new MySqlParameter("@id", id));
+            cmd.Parameters.Add(new MySqlParameter("@id", genero.Id));
             cmd.ExecuteNonQuery();
             Connection.Instance.Close();
         }

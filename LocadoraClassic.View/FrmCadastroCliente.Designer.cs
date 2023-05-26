@@ -41,7 +41,6 @@
             this.maskedTxtTelefoneCliente = new System.Windows.Forms.MaskedTextBox();
             this.dvgCliente = new System.Windows.Forms.DataGridView();
             this.btnDeletarCliente = new System.Windows.Forms.Button();
-            this.btnModificarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,6 +143,7 @@
             this.dvgCliente.Name = "dvgCliente";
             this.dvgCliente.Size = new System.Drawing.Size(786, 457);
             this.dvgCliente.TabIndex = 11;
+            this.dvgCliente.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCliente_CellValueChanged);
             // 
             // btnDeletarCliente
             // 
@@ -155,21 +155,11 @@
             this.btnDeletarCliente.UseVisualStyleBackColor = true;
             this.btnDeletarCliente.Click += new System.EventHandler(this.btnDeletarCliente_Click);
             // 
-            // btnModificarCliente
-            // 
-            this.btnModificarCliente.Location = new System.Drawing.Point(645, 621);
-            this.btnModificarCliente.Name = "btnModificarCliente";
-            this.btnModificarCliente.Size = new System.Drawing.Size(75, 23);
-            this.btnModificarCliente.TabIndex = 13;
-            this.btnModificarCliente.Text = "Modificar";
-            this.btnModificarCliente.UseVisualStyleBackColor = true;
-            // 
             // FrmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 656);
-            this.Controls.Add(this.btnModificarCliente);
             this.Controls.Add(this.btnDeletarCliente);
             this.Controls.Add(this.dvgCliente);
             this.Controls.Add(this.label5);
@@ -206,6 +196,5 @@
         private System.Windows.Forms.MaskedTextBox maskedTxtTelefoneCliente;
         private System.Windows.Forms.DataGridView dvgCliente;
         private System.Windows.Forms.Button btnDeletarCliente;
-        private System.Windows.Forms.Button btnModificarCliente;
     }
 }

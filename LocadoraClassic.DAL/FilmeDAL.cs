@@ -87,7 +87,7 @@ namespace LocadoraClassic.DAL
             cmd.ExecuteNonQuery();
             Connection.Instance.Close();
         }
-        public void AtualizarFilme(Filme filme, int id)
+        public void AtualizarFilme(Filme filme)
         {
             Connection.Instance.Open();
             string query = "UPDATE filme SET nome=@nome,duracao=@duracao,sinopse=@sinopse,locado=@locado,id_genero=@id_genero,id_categoria=@id_categoria WHERE id=@id";
@@ -100,7 +100,7 @@ namespace LocadoraClassic.DAL
             cmd.Parameters.Add(new MySqlParameter("@locado", filme.Locado));
             cmd.Parameters.Add(new MySqlParameter("@id_genero", filme.Genero.Id));
             cmd.Parameters.Add(new MySqlParameter("@id_categoria", filme.Sinopse));
-            cmd.Parameters.Add(new MySqlParameter("@id_categoria", id));
+            cmd.Parameters.Add(new MySqlParameter("@id_categoria", filme.Id));
             cmd.ExecuteNonQuery();
             Connection.Instance.Close();
         }

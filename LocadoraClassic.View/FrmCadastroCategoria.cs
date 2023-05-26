@@ -47,7 +47,19 @@ namespace LocadoraClassic.View
 
         private void btnDeletarCategoria_Click(object sender, EventArgs e)
         {
-            List<string> categoriasDeletadas = new List<string>(); 
+            List<string> categoriasDeletadas = new List<string>();
+            
+            if(dvgCategoria.SelectedCells.Count >= 0)
+            {
+                //seleciona todas as linhas das celulas selecionadas
+                foreach(DataGridViewCell cell in dvgCategoria.SelectedCells)
+                {
+                    DataGridViewRow row = dvgCategoria.Rows[cell.RowIndex];
+                    //seleciona a linha inteira
+                    row.Selected = true;
+                }
+            }
+            
             if ( dvgCategoria.SelectedRows.Count > 0)
             {
                 var seletedRows = dvgCategoria.SelectedRows;
@@ -77,12 +89,36 @@ namespace LocadoraClassic.View
                     }
                     
                     Categoria categoria = new Categoria(id,nome,valorDiaria);
-                    categoriaDAL.AtualizarCategoria(categoria,id);
+                    categoriaDAL.AtualizarCategoria(categoria);
                     categoriasModificadas.Add(seletedRow.Cells["Nome"].Value.ToString());
                 }
             }
             CarregaGrid();
             MessageBox.Show($"Categoria(s): {string.Join(",", categoriasModificadas)} modificadas(s)");
+        }
+
+        private void dvgCategoria_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show("Mudou o valor");
+            //obtem a celula onde ocorreu a modificação
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dvgCategoria.Rows[e.RowIndex];
+                //seleciona a linha inteira
+                row.Selected = true;
+            }
+            //verifica se tem alguma linha selecionada no DataGridView
+            if (dvgCategoria.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dvgCategoria.SelectedRows[0];
+                //Obtém o "id" da célula selecionada
+                var id = Convert.ToInt32(row.Cells["Id"].Value.ToString());
+                var nome = row.Cells["Nome"].Value.ToString();
+                var valorDiaria = Convert.ToDecimal(row.Cells["ValorDiaria"].Value);
+                var categoria = new Categoria(id, nome, valorDiaria);
+                categoriaDAL.AtualizarCategoria(categoria);
+            }
+            CarregaGrid();
         }
     }
 }

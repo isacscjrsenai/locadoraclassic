@@ -53,6 +53,18 @@ namespace LocadoraClassic.View
         private void btnDeletarCliente_Click(object sender, EventArgs e)
         {
             List<string> clientesDeletados = new List<string>();
+
+            if (dvgCliente.SelectedCells.Count >= 0)
+            {
+                //seleciona todas as linhas das celulas selecionadas
+                foreach (DataGridViewCell cell in dvgCliente.SelectedCells)
+                {
+                    DataGridViewRow row = dvgCliente.Rows[cell.RowIndex];
+                    //seleciona a linha inteira
+                    row.Selected = true;
+                }
+            }
+
             if (dvgCliente.SelectedRows.Count > 0)
             {
                 var seletedRows = dvgCliente.SelectedRows;
@@ -64,6 +76,31 @@ namespace LocadoraClassic.View
             }
             CarregaGrid();
             MessageBox.Show($"Categoria(s): {string.Join(",", clientesDeletados)} deletada(s)");
+        }
+
+        private void dvgCliente_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dvgCliente.Rows[e.RowIndex];
+                //seleciona a linha inteira
+                row.Selected = true;
+            }
+            //verifica se tem alguma linha selecionada no DataGridView
+            if (dvgCliente.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dvgCliente.SelectedRows[0];
+                //Obtém o "id" da célula selecionada
+                var id = Convert.ToInt32(row.Cells["Id"].Value.ToString());
+                var nome = row.Cells["Nome"].Value.ToString();
+                var rg = row.Cells["RG"].Value.ToString();
+                var cpf = row.Cells["CPF"].Value.ToString();
+                var tel = row.Cells["Tel"].Value.ToString();
+                var endereco = row.Cells["Endereco"].Value.ToString();
+                var cliente = new Cliente(id, nome,cpf,rg,tel,endereco);
+                clienteDAL.AtualizarCliente(cliente);
+            }
+            CarregaGrid();
         }
     }
 }

@@ -35,7 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dvgCategoria = new System.Windows.Forms.DataGridView();
             this.btnDeletarCategoria = new System.Windows.Forms.Button();
-            this.btnModificarCategoria = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCategoria)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +88,7 @@
             this.dvgCategoria.Name = "dvgCategoria";
             this.dvgCategoria.Size = new System.Drawing.Size(575, 312);
             this.dvgCategoria.TabIndex = 5;
+            this.dvgCategoria.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCategoria_CellValueChanged);
             // 
             // btnDeletarCategoria
             // 
@@ -100,22 +100,11 @@
             this.btnDeletarCategoria.UseVisualStyleBackColor = true;
             this.btnDeletarCategoria.Click += new System.EventHandler(this.btnDeletarCategoria_Click);
             // 
-            // btnModificarCategoria
-            // 
-            this.btnModificarCategoria.Location = new System.Drawing.Point(431, 448);
-            this.btnModificarCategoria.Name = "btnModificarCategoria";
-            this.btnModificarCategoria.Size = new System.Drawing.Size(75, 23);
-            this.btnModificarCategoria.TabIndex = 7;
-            this.btnModificarCategoria.Text = "Modificar";
-            this.btnModificarCategoria.UseVisualStyleBackColor = true;
-            this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click);
-            // 
             // FrmCadastroCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 481);
-            this.Controls.Add(this.btnModificarCategoria);
             this.Controls.Add(this.btnDeletarCategoria);
             this.Controls.Add(this.dvgCategoria);
             this.Controls.Add(this.label2);
@@ -140,6 +129,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dvgCategoria;
         private System.Windows.Forms.Button btnDeletarCategoria;
-        private System.Windows.Forms.Button btnModificarCategoria;
     }
 }

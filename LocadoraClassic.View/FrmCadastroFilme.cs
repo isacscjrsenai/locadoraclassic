@@ -1,4 +1,5 @@
 ﻿using LocadoraClassic.DAL;
+using LocadoraClassic.VO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,14 @@ namespace LocadoraClassic.View
 
         private void btnCadastrarFilme_Click(object sender, EventArgs e)
         {
+            var nomeGenero = cbGenero.Text.ToString();
+            var nomeCategoria = cbCategoria.Text.ToString();
+            Genero genero = generoDAL.ObterGenero(nomeGenero);
+            Categoria categoria = categoriaDAL.ObterCategoria(nomeCategoria);
+            var nomeFilme = txtNomeFilme.Text;
+            int duracaoFilme = int.Parse(maskedTxtDuracao.Text);
+            string sinopseFilme = txtSinopse.Text;
+            bool locadoFilme = checkBoxLocado.Checked;
 
         }
     }

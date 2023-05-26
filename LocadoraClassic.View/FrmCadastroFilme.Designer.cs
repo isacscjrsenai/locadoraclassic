@@ -44,7 +44,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnDeletarFilme = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -188,21 +187,11 @@
             this.btnDeletarFilme.Text = "Deletar";
             this.btnDeletarFilme.UseVisualStyleBackColor = true;
             // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(626, 745);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(78, 30);
-            this.btnModificar.TabIndex = 16;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
             // FrmCadastroFilme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 787);
-            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnDeletarFilme);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label6);
@@ -246,6 +235,5 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnDeletarFilme;
-        private System.Windows.Forms.Button btnModificar;
     }
 }

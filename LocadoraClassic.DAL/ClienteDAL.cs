@@ -91,7 +91,7 @@ namespace LocadoraClassic.DAL
             cmd.ExecuteNonQuery();
             Connection.Instance.Close();
         }
-        public void AtualizarFilme(Cliente cliente, int id)
+        public void AtualizarCliente(Cliente cliente)
         {
             Connection.Instance.Open();
             string query = "UPDATE cliente SET nome=@nome,cpf=@cpf,rg=@rg,tel=@tel,endereco=@endereco WHERE id=@id";
@@ -103,7 +103,7 @@ namespace LocadoraClassic.DAL
             cmd.Parameters.Add(new MySqlParameter("@rg", cliente.RG));
             cmd.Parameters.Add(new MySqlParameter("@tel", cliente.Tel));
             cmd.Parameters.Add(new MySqlParameter("@endereco", cliente.Endereco));
-            cmd.Parameters.Add(new MySqlParameter("@id", id));
+            cmd.Parameters.Add(new MySqlParameter("@id", cliente.Id));
             cmd.ExecuteNonQuery();
             Connection.Instance.Close();
 
