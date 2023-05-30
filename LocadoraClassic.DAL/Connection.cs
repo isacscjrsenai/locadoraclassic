@@ -10,8 +10,8 @@ namespace LocadoraClassic.DAL
 {
     public class Connection
     {
-        private static MySqlConnection _instance;
-        public static MySqlConnection Instance
+        private  MySqlConnection _instance;
+        public  MySqlConnection Instance
         {   
             get 
             {

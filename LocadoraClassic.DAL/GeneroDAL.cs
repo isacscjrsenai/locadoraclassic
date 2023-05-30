@@ -14,10 +14,14 @@ namespace LocadoraClassic.DAL
         
         public void InserirGenero(Genero genero)
         {
-            Connection.Instance.Open();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
             //MySqlCommand
             string query = "INSERT IGNORE INTO genero(nome)values(@nome)";
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             //DML - INSERT - DELETE - UPDATE - SELECT
             //STORED PROCEDURES
             //ADO.NET
@@ -25,12 +29,16 @@ namespace LocadoraClassic.DAL
             cmd.CommandText = query;
             cmd.Parameters.Add(new MySqlParameter("@nome", genero.Nome));
             cmd.ExecuteNonQuery();
-            Connection.Instance.Close();
+            conn.Instance.Close();
         }
         public List<Genero> ObterGeneros()
         {
-            Connection.Instance.Open ();
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT * FROM genero";
             //Executa o comando e obter o resultado
@@ -44,13 +52,17 @@ namespace LocadoraClassic.DAL
                 generos.Add(genero);
             }
             reader.Close();
-            Connection.Instance.Close ();
+            conn.Instance.Close ();
             return generos;
         }
         public Genero ObterGenero(int id)
         {
-            Connection.Instance.Open ();
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT * FROM genero WHERE id=@id";
             cmd.Parameters.Add(new MySqlParameter("@id", id));
@@ -62,13 +74,17 @@ namespace LocadoraClassic.DAL
             genero.Id = Convert.ToInt32(reader["id"]);
             genero.Nome = reader["nome"].ToString();
             reader.Close();
-            Connection.Instance.Close();
+            conn.Instance.Close();
             return genero;
         }
         public Genero ObterGenero(string nome)
         {
-            Connection.Instance.Open();
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT * FROM genero WHERE nome=@nome";
             cmd.Parameters.Add(new MySqlParameter("@nome", nome));
@@ -80,32 +96,40 @@ namespace LocadoraClassic.DAL
             genero.Id = Convert.ToInt32(reader["id"]);
             genero.Nome = reader["nome"].ToString();
             reader.Close();
-            Connection.Instance.Close();
+            conn.Instance.Close();
             return genero;
         }
 
         public void DeletarGenero(int id)
         {
-            Connection.Instance.Open();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
             string query = "DELETE FROM genero WHERE id=@id";
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.Parameters.Add(new MySqlParameter("@id", id));
             cmd.ExecuteNonQuery();
-            Connection.Instance.Close();
+            conn.Instance.Close();
         }
         public void AtualizarGenero(Genero genero)
         {
-            Connection.Instance.Open();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
             string query = "UPDATE genero SET nome=@nome WHERE id=@id";
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.Parameters.Add(new MySqlParameter("@nome", genero.Nome));
             cmd.Parameters.Add(new MySqlParameter("@id", genero.Id));
             cmd.ExecuteNonQuery();
-            Connection.Instance.Close();
+            conn.Instance.Close();
         }
     }
    

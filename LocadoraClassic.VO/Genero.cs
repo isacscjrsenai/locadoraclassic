@@ -17,5 +17,9 @@ namespace LocadoraClassic.VO
             Id = id;
             Nome = nome;
         }
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 }

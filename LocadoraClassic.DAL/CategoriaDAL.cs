@@ -12,10 +12,14 @@ namespace LocadoraClassic.DAL
     {
         public void InserirCategoria(Categoria categoria)
         {
-            Connection.Instance.Open();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
             //MySqlCommand
             string query = "INSERT IGNORE INTO categoria(nome,valor_diaria)values(@nome,@valor_diaria)";
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             //DML - INSERT - DELETE - UPDATE - SELECT
             //STORED PROCEDURES
             //ADO.NET
@@ -24,12 +28,16 @@ namespace LocadoraClassic.DAL
             cmd.Parameters.Add(new MySqlParameter("@nome", categoria.Nome));
             cmd.Parameters.Add(new MySqlParameter("@valor_diaria", categoria.ValorDiaria.ToString()));
             cmd.ExecuteNonQuery();
-            Connection.Instance.Close();
+            conn.Instance.Close();
         }
         public List<Categoria> ObterCategorias()
         {
-            Connection.Instance.Open();
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT * FROM categoria";
             //Executa o comando e obter o resultado
@@ -44,13 +52,17 @@ namespace LocadoraClassic.DAL
                 categorias.Add(categoria);
             }
             reader.Close();
-            Connection.Instance.Close();
+            conn.Instance.Close();
             return categorias;
         }
         public Categoria ObterCategoria(int id)
         {
-            Connection.Instance.Open();
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT * FROM categoria WHERE id=@id";
             cmd.Parameters.Add(new MySqlParameter("@id", id));
@@ -62,14 +74,18 @@ namespace LocadoraClassic.DAL
             categoria.Nome = reader["nome"].ToString();
             categoria.ValorDiaria = Convert.ToInt32(reader["valor_diaria"]);
             reader.Close();
-            Connection.Instance.Close();
+            conn.Instance.Close();
             return categoria;
         }
 
         public Categoria ObterCategoria(string nome)
         {
-            Connection.Instance.Open();
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT * FROM categoria WHERE nome=@nome";
             cmd.Parameters.Add(new MySqlParameter("@nome", nome));
@@ -81,33 +97,41 @@ namespace LocadoraClassic.DAL
             categoria.Nome = reader["nome"].ToString();
             categoria.ValorDiaria = Convert.ToInt32(reader["valor_diaria"]);
             reader.Close();
-            Connection.Instance.Close();
+            conn.Instance.Close();
             return categoria;
         }
         public void DeletarCategoria(int id)
         {
-            Connection.Instance.Open();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
             string query = "DELETE FROM categoria WHERE id=@id";
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.Parameters.Add(new MySqlParameter("@id", id));
             cmd.ExecuteNonQuery();
-            Connection.Instance.Close();
+            conn.Instance.Close();
         }
 
         public void AtualizarCategoria(Categoria categoria)
         {
-            Connection.Instance.Open();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
             string query = "UPDATE categoria SET nome=@nome, valor_diaria=@valor_diaria WHERE id=@id";
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType= System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.Parameters.Add(new MySqlParameter("@nome", categoria.Nome));
             cmd.Parameters.Add(new MySqlParameter("valor_diaria",categoria.ValorDiaria));
             cmd.Parameters.Add(new MySqlParameter("@id", categoria.Id));
             cmd.ExecuteNonQuery();
-            Connection.Instance.Close();
+            conn.Instance.Close();
         }
     }
 }

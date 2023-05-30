@@ -27,5 +27,9 @@ namespace LocadoraClassic.VO
             Locado = locado;
             Duracao = duracao;
         }
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 }

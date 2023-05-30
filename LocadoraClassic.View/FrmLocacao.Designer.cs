@@ -31,33 +31,37 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.cbCliente = new System.Windows.Forms.ComboBox();
+            this.maskedTxtCPF = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnConfirmarFilme = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dgvFilmes = new System.Windows.Forms.DataGridView();
+            this.cbGenero = new System.Windows.Forms.ComboBox();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNomeFilme = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpLocacao = new System.Windows.Forms.DateTimePicker();
+            this.dtpDevolucao = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgvLocados = new System.Windows.Forms.DataGridView();
+            this.btnFinalizaLocacao = new System.Windows.Forms.Button();
+            this.Filme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorDiaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRemoveFilme = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFilmes)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocados)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,84 +84,97 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.maskedTextBox2);
+            this.groupBox1.Controls.Add(this.cbCliente);
+            this.groupBox1.Controls.Add(this.maskedTxtCPF);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 63);
+            this.groupBox1.Size = new System.Drawing.Size(1085, 63);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busca de Cliente por CPF";
             // 
-            // textBox1
+            // cbCliente
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(100, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(670, 20);
-            this.textBox1.TabIndex = 7;
+            this.cbCliente.FormattingEnabled = true;
+            this.cbCliente.Location = new System.Drawing.Point(102, 33);
+            this.cbCliente.Name = "cbCliente";
+            this.cbCliente.Size = new System.Drawing.Size(974, 21);
+            this.cbCliente.TabIndex = 16;
+            this.cbCliente.SelectedIndexChanged += new System.EventHandler(this.cbCliente_SelectedIndexChanged);
             // 
-            // maskedTextBox2
+            // maskedTxtCPF
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(9, 32);
-            this.maskedTextBox2.Mask = "000.000.000-00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(85, 20);
-            this.maskedTextBox2.TabIndex = 6;
+            this.maskedTxtCPF.Location = new System.Drawing.Point(9, 32);
+            this.maskedTxtCPF.Mask = "000.000.000-00";
+            this.maskedTxtCPF.Name = "maskedTxtCPF";
+            this.maskedTxtCPF.Size = new System.Drawing.Size(85, 20);
+            this.maskedTxtCPF.TabIndex = 6;
+            this.maskedTxtCPF.TextChanged += new System.EventHandler(this.maskedTxtCPF_TextChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.BtnConfirmarFilme);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.dgvFilmes);
+            this.groupBox2.Controls.Add(this.cbGenero);
+            this.groupBox2.Controls.Add(this.cbCategoria);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtNomeFilme);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(12, 81);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(776, 395);
+            this.groupBox2.Size = new System.Drawing.Size(1085, 395);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busca Filme por Nome";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(7, 138);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(236, 242);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // BtnConfirmarFilme
             // 
             this.BtnConfirmarFilme.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnConfirmarFilme.Location = new System.Drawing.Point(322, 323);
             this.BtnConfirmarFilme.Name = "BtnConfirmarFilme";
-            this.BtnConfirmarFilme.Size = new System.Drawing.Size(448, 57);
+            this.BtnConfirmarFilme.Size = new System.Drawing.Size(754, 57);
             this.BtnConfirmarFilme.TabIndex = 5;
             this.BtnConfirmarFilme.Text = "Confirmar Filme";
             this.BtnConfirmarFilme.UseVisualStyleBackColor = true;
+            this.BtnConfirmarFilme.Click += new System.EventHandler(this.BtnConfirmarFilme_Click);
             // 
-            // dataGridView1
+            // dgvFilmes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(322, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(448, 301);
-            this.dataGridView1.TabIndex = 14;
+            this.dgvFilmes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFilmes.Location = new System.Drawing.Point(322, 16);
+            this.dgvFilmes.Name = "dgvFilmes";
+            this.dgvFilmes.Size = new System.Drawing.Size(754, 301);
+            this.dgvFilmes.TabIndex = 14;
             // 
-            // comboBox2
+            // cbGenero
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(6, 72);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(237, 21);
-            this.comboBox2.TabIndex = 13;
+            this.cbGenero.FormattingEnabled = true;
+            this.cbGenero.Location = new System.Drawing.Point(6, 72);
+            this.cbGenero.Name = "cbGenero";
+            this.cbGenero.Size = new System.Drawing.Size(237, 21);
+            this.cbGenero.TabIndex = 13;
+            this.cbGenero.SelectedIndexChanged += new System.EventHandler(this.cbGenero_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbCategoria
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(237, 21);
-            this.comboBox1.TabIndex = 12;
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(6, 32);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(237, 21);
+            this.cbCategoria.TabIndex = 12;
+            this.cbCategoria.SelectedIndexChanged += new System.EventHandler(this.cbCategoria_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -177,12 +194,13 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Categoria";
             // 
-            // textBox2
+            // txtNomeFilme
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(237, 20);
-            this.textBox2.TabIndex = 9;
+            this.txtNomeFilme.Location = new System.Drawing.Point(6, 112);
+            this.txtNomeFilme.Name = "txtNomeFilme";
+            this.txtNomeFilme.Size = new System.Drawing.Size(237, 20);
+            this.txtNomeFilme.TabIndex = 9;
+            this.txtNomeFilme.TextChanged += new System.EventHandler(this.txtNomeFilme_TextChanged);
             // 
             // label3
             // 
@@ -205,47 +223,40 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(384, 16);
+            this.label7.Location = new System.Drawing.Point(838, 15);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 13);
+            this.label7.Size = new System.Drawing.Size(100, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Data de Evolução";
+            this.label7.Text = "Data de Devolução";
             // 
-            // button1
+            // dtpLocacao
             // 
-            this.button1.Location = new System.Drawing.Point(626, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Adicionar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dtpLocacao.Enabled = false;
+            this.dtpLocacao.Location = new System.Drawing.Point(6, 30);
+            this.dtpLocacao.Name = "dtpLocacao";
+            this.dtpLocacao.Size = new System.Drawing.Size(237, 20);
+            this.dtpLocacao.TabIndex = 16;
             // 
-            // dateTimePicker1
+            // dtpDevolucao
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 30);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(237, 20);
-            this.dateTimePicker1.TabIndex = 16;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(387, 30);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(233, 20);
-            this.dateTimePicker2.TabIndex = 17;
+            this.dtpDevolucao.Enabled = false;
+            this.dtpDevolucao.Location = new System.Drawing.Point(841, 30);
+            this.dtpDevolucao.Name = "dtpDevolucao";
+            this.dtpDevolucao.Size = new System.Drawing.Size(233, 20);
+            this.dtpDevolucao.TabIndex = 17;
+            this.dtpDevolucao.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
+            this.groupBox3.Controls.Add(this.dgvLocados);
+            this.groupBox3.Controls.Add(this.dtpLocacao);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.dateTimePicker2);
+            this.groupBox3.Controls.Add(this.dtpDevolucao);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(12, 482);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(776, 327);
+            this.groupBox3.Size = new System.Drawing.Size(1085, 327);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Locação";
@@ -260,38 +271,72 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Lista de Filmes Locados";
             // 
-            // dataGridView2
+            // dgvLocados
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 82);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(758, 239);
-            this.dataGridView2.TabIndex = 16;
+            this.dgvLocados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLocados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Filme,
+            this.Categoria,
+            this.Genero,
+            this.ValorDiaria});
+            this.dgvLocados.Location = new System.Drawing.Point(6, 82);
+            this.dgvLocados.Name = "dgvLocados";
+            this.dgvLocados.Size = new System.Drawing.Size(1070, 239);
+            this.dgvLocados.TabIndex = 16;
+            this.dgvLocados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
-            // button2
+            // btnFinalizaLocacao
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 815);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(776, 29);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Finalizar Locação";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnFinalizaLocacao.BackColor = System.Drawing.Color.Green;
+            this.btnFinalizaLocacao.Enabled = false;
+            this.btnFinalizaLocacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizaLocacao.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnFinalizaLocacao.Location = new System.Drawing.Point(207, 815);
+            this.btnFinalizaLocacao.Name = "btnFinalizaLocacao";
+            this.btnFinalizaLocacao.Size = new System.Drawing.Size(890, 34);
+            this.btnFinalizaLocacao.TabIndex = 16;
+            this.btnFinalizaLocacao.Text = "Finalizar Locação";
+            this.btnFinalizaLocacao.UseVisualStyleBackColor = false;
+            this.btnFinalizaLocacao.Click += new System.EventHandler(this.btnFinalizaLocacao_Click);
             // 
-            // pictureBox1
+            // Filme
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(7, 138);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(236, 242);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
+            this.Filme.HeaderText = "Filme";
+            this.Filme.Name = "Filme";
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            // 
+            // Genero
+            // 
+            this.Genero.HeaderText = "Genêro";
+            this.Genero.Name = "Genero";
+            // 
+            // ValorDiaria
+            // 
+            this.ValorDiaria.HeaderText = "Valor da Diária";
+            this.ValorDiaria.Name = "ValorDiaria";
+            // 
+            // btnRemoveFilme
+            // 
+            this.btnRemoveFilme.Enabled = false;
+            this.btnRemoveFilme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveFilme.Location = new System.Drawing.Point(19, 815);
+            this.btnRemoveFilme.Name = "btnRemoveFilme";
+            this.btnRemoveFilme.Size = new System.Drawing.Size(182, 34);
+            this.btnRemoveFilme.TabIndex = 19;
+            this.btnRemoveFilme.Text = "Remover";
+            this.btnRemoveFilme.UseVisualStyleBackColor = true;
             // 
             // FrmLocacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 861);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1102, 861);
+            this.Controls.Add(this.btnRemoveFilme);
+            this.Controls.Add(this.btnFinalizaLocacao);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -301,11 +346,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFilmes)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocados)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,26 +359,30 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTxtCPF;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvFilmes;
+        private System.Windows.Forms.ComboBox cbGenero;
+        private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNomeFilme;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnConfirmarFilme;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpLocacao;
+        private System.Windows.Forms.DateTimePicker dtpDevolucao;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dgvLocados;
+        private System.Windows.Forms.Button btnFinalizaLocacao;
+        private System.Windows.Forms.ComboBox cbCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Filme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorDiaria;
+        private System.Windows.Forms.Button btnRemoveFilme;
     }
 }

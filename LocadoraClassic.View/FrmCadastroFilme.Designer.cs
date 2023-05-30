@@ -36,16 +36,17 @@
             this.txtNomeFilme = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTxtDuracao = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSinopse = new System.Windows.Forms.TextBox();
             this.checkBoxLocado = new System.Windows.Forms.CheckBox();
             this.btnCadastrarFilme = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFilme = new System.Windows.Forms.DataGridView();
             this.btnDeletarFilme = new System.Windows.Forms.Button();
+            this.maskedTxtDuracao = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFilme)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -115,15 +116,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Duração";
             // 
-            // maskedTxtDuracao
-            // 
-            this.maskedTxtDuracao.Location = new System.Drawing.Point(12, 144);
-            this.maskedTxtDuracao.Mask = "90:00";
-            this.maskedTxtDuracao.Name = "maskedTxtDuracao";
-            this.maskedTxtDuracao.Size = new System.Drawing.Size(35, 20);
-            this.maskedTxtDuracao.TabIndex = 8;
-            this.maskedTxtDuracao.ValidatingType = typeof(System.DateTime);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -170,13 +162,14 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Banner";
             // 
-            // dataGridView1
+            // dgvFilme
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 511);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 223);
-            this.dataGridView1.TabIndex = 14;
+            this.dgvFilme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFilme.Location = new System.Drawing.Point(12, 511);
+            this.dgvFilme.Name = "dgvFilme";
+            this.dgvFilme.Size = new System.Drawing.Size(776, 223);
+            this.dgvFilme.TabIndex = 14;
+            this.dgvFilme.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFilme_CellValueChanged);
             // 
             // btnDeletarFilme
             // 
@@ -186,14 +179,34 @@
             this.btnDeletarFilme.TabIndex = 15;
             this.btnDeletarFilme.Text = "Deletar";
             this.btnDeletarFilme.UseVisualStyleBackColor = true;
+            this.btnDeletarFilme.Click += new System.EventHandler(this.btnDeletarFilme_Click);
+            // 
+            // maskedTxtDuracao
+            // 
+            this.maskedTxtDuracao.Location = new System.Drawing.Point(12, 144);
+            this.maskedTxtDuracao.Mask = "000";
+            this.maskedTxtDuracao.Name = "maskedTxtDuracao";
+            this.maskedTxtDuracao.Size = new System.Drawing.Size(35, 20);
+            this.maskedTxtDuracao.TabIndex = 8;
+            this.maskedTxtDuracao.ValidatingType = typeof(int);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(50, 147);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Min.";
             // 
             // FrmCadastroFilme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 787);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnDeletarFilme);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFilme);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCadastrarFilme);
             this.Controls.Add(this.checkBoxLocado);
@@ -210,8 +223,9 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmCadastroFilme";
             this.Text = "LOCADORA CLASSIC - Cadastro de Filme";
+            this.Load += new System.EventHandler(this.FrmCadastroFilme_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFilme)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,13 +241,14 @@
         private System.Windows.Forms.TextBox txtNomeFilme;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTxtDuracao;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSinopse;
         private System.Windows.Forms.CheckBox checkBoxLocado;
         private System.Windows.Forms.Button btnCadastrarFilme;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFilme;
         private System.Windows.Forms.Button btnDeletarFilme;
+        private System.Windows.Forms.MaskedTextBox maskedTxtDuracao;
+        private System.Windows.Forms.Label label7;
     }
 }

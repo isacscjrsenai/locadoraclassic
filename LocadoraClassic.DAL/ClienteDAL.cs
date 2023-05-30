@@ -14,10 +14,14 @@ namespace LocadoraClassic.DAL
     {
         public void InserirCliente(Cliente cliente)
         {
-            Connection.Instance.Open();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
             //MySqlCommand
             string query = "INSERT IGNORE INTO cliente(nome,cpf,rg,tel,endereco)values(@nome,@cpf,@rg,@tel,@endereco)";
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             //DML - INSERT - DELETE - UPDATE - SELECT
             //STORED PROCEDURES
             //ADO.NET
@@ -29,12 +33,16 @@ namespace LocadoraClassic.DAL
             cmd.Parameters.Add(new MySqlParameter("@tel", cliente.Tel));
             cmd.Parameters.Add(new MySqlParameter("@endereco", cliente.Endereco));
             cmd.ExecuteNonQuery();
-            Connection.Instance.Close();
+            conn.Instance.Close();
         }
         public List<Cliente> ObterClientes()
         {
-            Connection.Instance.Open();
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT * FROM cliente";
             //Executa o comando e obter o resultado
@@ -44,6 +52,7 @@ namespace LocadoraClassic.DAL
             {
                 Cliente cliente = new Cliente();
                 cliente.Id = Convert.ToInt32(reader["id"]);
+                cliente.Nome = reader["nome"].ToString();
                 cliente.CPF = reader["cpf"].ToString();
                 cliente.RG = reader["rg"].ToString();
                 cliente.Tel = reader["tel"].ToString();
@@ -51,15 +60,47 @@ namespace LocadoraClassic.DAL
                 clientes.Add(cliente);
             }
             reader.Close();
-            Connection.Instance.Close();
+            conn.Instance.Close();
             return clientes;
         }
-        public List<Cliente> ObterCliente(string nome)
+        public List<Cliente> ObterClientePorCPF(string cpf)
         {
-            Connection.Instance.Open();
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "SELECT * FROM cliente WHERE nome=@nome";
+            cmd.CommandText = $"SELECT * FROM cliente WHERE cpf like '{cpf}%'";
+            //Executa o comando e obter o resultado
+            MySqlDataReader reader = cmd.ExecuteReader();
+            List<Cliente> clientes = new List<Cliente>();
+            while (reader.Read())
+            {
+                Cliente cliente = new Cliente();
+                cliente.Id = Convert.ToInt32(reader["id"]);
+                cliente.Nome = reader["nome"].ToString();
+                cliente.CPF = reader["cpf"].ToString();
+                cliente.RG = reader["rg"].ToString();
+                cliente.Tel = reader["tel"].ToString();
+                cliente.Endereco = reader["endereco"].ToString();
+                clientes.Add(cliente);
+            }
+            reader.Close();
+            conn.Instance.Close();
+            return clientes;
+        }
+        public List<Cliente> ObterClientePorNome(string nome)
+        {
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
+            MySqlCommand cmd = conn.Instance.CreateCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = $"SELECT * FROM cliente WHERE nome=@nome'";
             cmd.Parameters.Add(new MySqlParameter("@nome", nome));
             //Executa o comando e obter o resultado
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -68,6 +109,7 @@ namespace LocadoraClassic.DAL
             {
                 Cliente cliente = new Cliente();
                 cliente.Id = Convert.ToInt32(reader["id"]);
+                cliente.Nome = reader["nome"].ToString();
                 cliente.CPF = reader["cpf"].ToString();
                 cliente.RG = reader["rg"].ToString();
                 cliente.Tel = reader["tel"].ToString();
@@ -75,27 +117,35 @@ namespace LocadoraClassic.DAL
                 clientes.Add(cliente);
             }
             reader.Close();
-            Connection.Instance.Close();
+            conn.Instance.Close();
             return clientes;
         }
 
 
         public void DeletarCliente(int id)
         {
-            Connection.Instance.Open();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
             string query = "DELETE FROM cliente WHERE id=@id";
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.Parameters.Add(new MySqlParameter("@id", id));
             cmd.ExecuteNonQuery();
-            Connection.Instance.Close();
+            conn.Instance.Close();
         }
         public void AtualizarCliente(Cliente cliente)
         {
-            Connection.Instance.Open();
+            Connection conn = new Connection();
+            if (conn.Instance.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Instance.Open();
+            }
             string query = "UPDATE cliente SET nome=@nome,cpf=@cpf,rg=@rg,tel=@tel,endereco=@endereco WHERE id=@id";
-            MySqlCommand cmd = Connection.Instance.CreateCommand();
+            MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.Parameters.Add(new MySqlParameter("@nome", cliente.Nome));
@@ -105,7 +155,7 @@ namespace LocadoraClassic.DAL
             cmd.Parameters.Add(new MySqlParameter("@endereco", cliente.Endereco));
             cmd.Parameters.Add(new MySqlParameter("@id", cliente.Id));
             cmd.ExecuteNonQuery();
-            Connection.Instance.Close();
+            conn.Instance.Close();
 
         }
     }

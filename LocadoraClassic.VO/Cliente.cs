@@ -26,6 +26,10 @@ namespace LocadoraClassic.VO
             Tel = tel;
             Endereco = endereco;
         }
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
     
 }
