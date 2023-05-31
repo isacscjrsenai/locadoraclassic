@@ -151,13 +151,13 @@ namespace LocadoraClassic.DAL
             MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
-            cmd.Parameters.Add(new MySqlParameter("@duracao", filme.Duracao));
             cmd.Parameters.Add(new MySqlParameter("@nome", filme.Nome));
+            cmd.Parameters.Add(new MySqlParameter("@duracao", filme.Duracao));
             cmd.Parameters.Add(new MySqlParameter("@sinopse", filme.Sinopse));
             cmd.Parameters.Add(new MySqlParameter("@locado", filme.Locado));
             cmd.Parameters.Add(new MySqlParameter("@id_genero", filme.Genero.Id));
             cmd.Parameters.Add(new MySqlParameter("@id_categoria", filme.Sinopse));
-            cmd.Parameters.Add(new MySqlParameter("@id_categoria", filme.Id));
+            cmd.Parameters.Add(new MySqlParameter("@id", filme.Id));
             cmd.ExecuteNonQuery();
             conn.Instance.Close();
         }

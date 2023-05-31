@@ -50,12 +50,14 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvLocados = new System.Windows.Forms.DataGridView();
-            this.btnFinalizaLocacao = new System.Windows.Forms.Button();
             this.Filme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorDiaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnFinalizaLocacao = new System.Windows.Forms.Button();
             this.btnRemoveFilme = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtValorTotal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -236,6 +238,7 @@
             this.dtpLocacao.Name = "dtpLocacao";
             this.dtpLocacao.Size = new System.Drawing.Size(237, 20);
             this.dtpLocacao.TabIndex = 16;
+            this.dtpLocacao.ValueChanged += new System.EventHandler(this.dtpLocacao_ValueChanged);
             // 
             // dtpDevolucao
             // 
@@ -248,6 +251,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtValorTotal);
+            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.dgvLocados);
             this.groupBox3.Controls.Add(this.dtpLocacao);
@@ -285,20 +290,6 @@
             this.dgvLocados.TabIndex = 16;
             this.dgvLocados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
-            // btnFinalizaLocacao
-            // 
-            this.btnFinalizaLocacao.BackColor = System.Drawing.Color.Green;
-            this.btnFinalizaLocacao.Enabled = false;
-            this.btnFinalizaLocacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinalizaLocacao.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFinalizaLocacao.Location = new System.Drawing.Point(207, 815);
-            this.btnFinalizaLocacao.Name = "btnFinalizaLocacao";
-            this.btnFinalizaLocacao.Size = new System.Drawing.Size(890, 34);
-            this.btnFinalizaLocacao.TabIndex = 16;
-            this.btnFinalizaLocacao.Text = "Finalizar Locação";
-            this.btnFinalizaLocacao.UseVisualStyleBackColor = false;
-            this.btnFinalizaLocacao.Click += new System.EventHandler(this.btnFinalizaLocacao_Click);
-            // 
             // Filme
             // 
             this.Filme.HeaderText = "Filme";
@@ -319,6 +310,20 @@
             this.ValorDiaria.HeaderText = "Valor da Diária";
             this.ValorDiaria.Name = "ValorDiaria";
             // 
+            // btnFinalizaLocacao
+            // 
+            this.btnFinalizaLocacao.BackColor = System.Drawing.Color.Green;
+            this.btnFinalizaLocacao.Enabled = false;
+            this.btnFinalizaLocacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizaLocacao.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnFinalizaLocacao.Location = new System.Drawing.Point(207, 815);
+            this.btnFinalizaLocacao.Name = "btnFinalizaLocacao";
+            this.btnFinalizaLocacao.Size = new System.Drawing.Size(890, 34);
+            this.btnFinalizaLocacao.TabIndex = 16;
+            this.btnFinalizaLocacao.Text = "Finalizar Locação";
+            this.btnFinalizaLocacao.UseVisualStyleBackColor = false;
+            this.btnFinalizaLocacao.Click += new System.EventHandler(this.btnFinalizaLocacao_Click);
+            // 
             // btnRemoveFilme
             // 
             this.btnRemoveFilme.Enabled = false;
@@ -329,6 +334,28 @@
             this.btnRemoveFilme.TabIndex = 19;
             this.btnRemoveFilme.Text = "Remover";
             this.btnRemoveFilme.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(801, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(180, 29);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Valor Total:R$";
+            // 
+            // txtValorTotal
+            // 
+            this.txtValorTotal.AutoSize = true;
+            this.txtValorTotal.BackColor = System.Drawing.SystemColors.Control;
+            this.txtValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorTotal.ForeColor = System.Drawing.Color.Lime;
+            this.txtValorTotal.Location = new System.Drawing.Point(974, 50);
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.Size = new System.Drawing.Size(62, 29);
+            this.txtValorTotal.TabIndex = 20;
+            this.txtValorTotal.Text = "0,00";
             // 
             // FrmLocacao
             // 
@@ -384,5 +411,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorDiaria;
         private System.Windows.Forms.Button btnRemoveFilme;
+        private System.Windows.Forms.Label txtValorTotal;
+        private System.Windows.Forms.Label label9;
     }
 }

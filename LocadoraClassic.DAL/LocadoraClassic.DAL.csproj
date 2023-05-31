@@ -92,6 +92,7 @@
     <Compile Include="Connection.cs" />
     <Compile Include="FilmeDAL.cs" />
     <Compile Include="GeneroDAL.cs" />
+    <Compile Include="LocacaoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

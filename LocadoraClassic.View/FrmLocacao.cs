@@ -18,7 +18,10 @@ namespace LocadoraClassic.View
         CategoriaDAL categoriaDAL = new CategoriaDAL();
         FilmeDAL filmeDAL = new FilmeDAL();
         ClienteDAL clienteDAL = new ClienteDAL();
+        LocacaoDAL locacaoDAL = new LocacaoDAL();
         List<Dictionary<string,string>>filmesLocados = new List<Dictionary<string, string>>();
+        private TimeSpan tempoDeLocacao = TimeSpan.FromDays(1);
+        decimal valorTotal = 0;
         public FrmLocacao()
         {
             InitializeComponent();
@@ -55,13 +58,15 @@ namespace LocadoraClassic.View
                 foreach (DataGridViewRow seletedRow in seletedRows)
                 {
                     var filme = filmeDAL.ObterFilme(Convert.ToInt32(seletedRow.Cells["Id"].Value.ToString()));
+
                     filmesSelecionados.Add(filme);
                 }
             }
             CarregaGridLocados(filmesSelecionados);
             dtpLocacao.Enabled = true;
             dtpDevolucao.Enabled = true;
-            
+            AtualizaValorTotal();
+
             //MessageBox.Show($"Filme(s): {string.Join(",", filmesSelecionados)} selecionado(s)");
         }
 
@@ -69,12 +74,27 @@ namespace LocadoraClassic.View
         {
             foreach(Filme filme in filmesSelecionados)
             {
-                var filmeLocado = new Dictionary<string, string> { {"Filme",filme.Nome },
+                var filmeLocado = new Dictionary<string, string> {
+                                                 {"Id",filme.Id.ToString() },
+                                                 {"Filme",filme.Nome },
                                                  {"Genêro",filme.Genero.Nome },
                                                  {"Categoria",filme.Categoria.Nome },
                                                  {"Valor da Diária",filme.Categoria.ValorDiaria.ToString() },
+                                                 {"Total das Diárias",(filme.Categoria.ValorDiaria * (decimal)tempoDeLocacao.TotalDays).ToString() },
                                                };
-                filmesLocados.Add(filmeLocado);
+
+                bool existe = false;
+                foreach(var item in filmesLocados)
+                {
+                    if (item["Id"].Contains(filmeLocado["Id"]))
+                    {
+                        existe = true;
+                    }
+                }
+                if (!existe)
+                {
+                    filmesLocados.Add(filmeLocado);
+                }
             }
             
             dgvLocados.Rows.Clear();
@@ -89,6 +109,20 @@ namespace LocadoraClassic.View
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             btnFinalizaLocacao.Enabled = true;
+            AtualizaTempoDeLocacao();
+            AtualizaValorDasDiarias();
+            AtualizaValorTotal();
+
+        }
+
+        private void AtualizaValorTotal()
+        {
+            valorTotal = 0;
+            foreach(var filme in filmesLocados)
+            {
+                valorTotal += decimal.Parse(filme["Total das Diárias"]);
+            }
+            txtValorTotal.Text = valorTotal.ToString();
         }
 
         private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,9 +162,52 @@ namespace LocadoraClassic.View
 
         private void btnFinalizaLocacao_Click(object sender, EventArgs e)
         {
+
+            Locacao locacao = new Locacao
+            {
+                Id = (int)locacaoDAL.GetNextId(),
+                DataLocacao = dtpLocacao.Value.Date,
+                DataDevolucao = dtpDevolucao.Value.Date,
+                FilmesLocados = filmesLocados,
+                ValorTotal = valorTotal
+            };
+            locacaoDAL.AdicionaLocacao(locacao);
+            MessageBox.Show($"Locação realizada\nValor Total:R${valorTotal}");
+            AtualizaStatusDeLocacao();
+            dgvLocados.Rows.Clear(); //limpa a tabela de locação
+            filmesLocados.Clear(); //Limpa a lista de filmes locados
+            AtualizaValorTotal();
+
+        }
+
+        private void AtualizaStatusDeLocacao()
+        {
+            foreach(var filme in filmesLocados)
+            {
+                var objFilme = filmeDAL.ObterFilme(Convert.ToInt32(filme["Id"]));
+                objFilme.Locado = true;
+                filmeDAL.AtualizarFilme(objFilme);
+            }
+        }
+
+        private void AtualizaValorDasDiarias()
+        {
+            foreach (var filme in filmesLocados)
+            {
+                filme["Total das Diárias"] = (decimal.Parse(filme["Valor da Diária"]) * (decimal)tempoDeLocacao.TotalDays).ToString();
+            }
+        }
+        private void AtualizaTempoDeLocacao()
+        {
             var diaLocacao = dtpLocacao.Value.Date;
             var diaDevolucao = dtpDevolucao.Value.Date;
-            
+            tempoDeLocacao = TimeSpan.FromDays(diaDevolucao.Subtract(diaLocacao).Days);
+        }
+
+        private void dtpLocacao_ValueChanged(object sender, EventArgs e)
+        {
+            AtualizaTempoDeLocacao();
+            AtualizaValorDasDiarias();
         }
     }
 }
