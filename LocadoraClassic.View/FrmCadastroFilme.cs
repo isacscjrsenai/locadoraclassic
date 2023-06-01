@@ -1,5 +1,6 @@
 ﻿using LocadoraClassic.DAL;
 using LocadoraClassic.VO;
+using LocadoraClassic.API;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace LocadoraClassic.View
 {
@@ -115,6 +117,13 @@ namespace LocadoraClassic.View
                 filmeDAL.AtualizarFilme(filme);
             }
             CarregarGrid();
+        }
+
+        private void btnPesquisaFilme_Click(object sender, EventArgs e)
+        {
+            var NomeFilme = txtNomeFilme.Text;
+            var titleData = new ImdbApi().GetTitle(NomeFilme);
+            MessageBox.Show($"{titleData.Result.Results[0].Title}");
         }
     }
 }

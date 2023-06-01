@@ -45,8 +45,12 @@
             this.btnDeletarFilme = new System.Windows.Forms.Button();
             this.maskedTxtDuracao = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.dgvPossibilidades = new System.Windows.Forms.DataGridView();
+            this.labelPossibilidade = new System.Windows.Forms.Label();
+            this.btnPesquisaFilme = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilme)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPossibilidades)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -101,9 +105,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(407, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(417, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(381, 413);
+            this.pictureBox1.Size = new System.Drawing.Size(371, 390);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -145,7 +149,7 @@
             // 
             // btnCadastrarFilme
             // 
-            this.btnCadastrarFilme.Location = new System.Drawing.Point(12, 444);
+            this.btnCadastrarFilme.Location = new System.Drawing.Point(12, 593);
             this.btnCadastrarFilme.Name = "btnCadastrarFilme";
             this.btnCadastrarFilme.Size = new System.Drawing.Size(776, 60);
             this.btnCadastrarFilme.TabIndex = 12;
@@ -165,7 +169,7 @@
             // dgvFilme
             // 
             this.dgvFilme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFilme.Location = new System.Drawing.Point(12, 511);
+            this.dgvFilme.Location = new System.Drawing.Point(12, 660);
             this.dgvFilme.Name = "dgvFilme";
             this.dgvFilme.Size = new System.Drawing.Size(776, 223);
             this.dgvFilme.TabIndex = 14;
@@ -173,7 +177,7 @@
             // 
             // btnDeletarFilme
             // 
-            this.btnDeletarFilme.Location = new System.Drawing.Point(710, 745);
+            this.btnDeletarFilme.Location = new System.Drawing.Point(710, 894);
             this.btnDeletarFilme.Name = "btnDeletarFilme";
             this.btnDeletarFilme.Size = new System.Drawing.Size(78, 30);
             this.btnDeletarFilme.TabIndex = 15;
@@ -199,11 +203,42 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Min.";
             // 
+            // dgvPossibilidades
+            // 
+            this.dgvPossibilidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPossibilidades.Location = new System.Drawing.Point(12, 444);
+            this.dgvPossibilidades.Name = "dgvPossibilidades";
+            this.dgvPossibilidades.Size = new System.Drawing.Size(776, 136);
+            this.dgvPossibilidades.TabIndex = 17;
+            // 
+            // labelPossibilidade
+            // 
+            this.labelPossibilidade.AutoSize = true;
+            this.labelPossibilidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPossibilidade.Location = new System.Drawing.Point(677, 420);
+            this.labelPossibilidade.Name = "labelPossibilidade";
+            this.labelPossibilidade.Size = new System.Drawing.Size(111, 16);
+            this.labelPossibilidade.TabIndex = 18;
+            this.labelPossibilidade.Text = "Possibilidades";
+            // 
+            // btnPesquisaFilme
+            // 
+            this.btnPesquisaFilme.Location = new System.Drawing.Point(243, 139);
+            this.btnPesquisaFilme.Name = "btnPesquisaFilme";
+            this.btnPesquisaFilme.Size = new System.Drawing.Size(131, 29);
+            this.btnPesquisaFilme.TabIndex = 19;
+            this.btnPesquisaFilme.Text = "Pesquisar Filme";
+            this.btnPesquisaFilme.UseVisualStyleBackColor = true;
+            this.btnPesquisaFilme.Click += new System.EventHandler(this.btnPesquisaFilme_Click);
+            // 
             // FrmCadastroFilme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 787);
+            this.ClientSize = new System.Drawing.Size(800, 936);
+            this.Controls.Add(this.btnPesquisaFilme);
+            this.Controls.Add(this.labelPossibilidade);
+            this.Controls.Add(this.dgvPossibilidades);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnDeletarFilme);
             this.Controls.Add(this.dgvFilme);
@@ -226,6 +261,7 @@
             this.Load += new System.EventHandler(this.FrmCadastroFilme_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilme)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPossibilidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +286,8 @@
         private System.Windows.Forms.Button btnDeletarFilme;
         private System.Windows.Forms.MaskedTextBox maskedTxtDuracao;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgvPossibilidades;
+        private System.Windows.Forms.Label labelPossibilidade;
+        private System.Windows.Forms.Button btnPesquisaFilme;
     }
 }

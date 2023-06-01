@@ -1,0 +1,11 @@
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\bin\Debug\LocadoraClassic.API.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\bin\Debug\LocadoraClassic.API.pdb
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\bin\Debug\IMDbApiLib.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\obj\Debug\LocadoraClassic.API.csproj.AssemblyReference.cache
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\obj\Debug\LocadoraClassic.API.csproj.CoreCompileInputs.cache
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\obj\Debug\LocadoraClassic.API.csproj.CopyComplete
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\obj\Debug\LocadoraClassic.API.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.API\obj\Debug\LocadoraClassic.API.pdb

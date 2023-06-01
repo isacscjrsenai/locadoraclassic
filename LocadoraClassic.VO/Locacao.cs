@@ -13,6 +13,7 @@ namespace LocadoraClassic.VO
         public DateTime DataLocacao { get; set; }
         public DateTime DataDevolucao { get; set; }
         public decimal ValorTotal { get; set; }
+        public Cliente Cliente { get; set; }
         public Locacao() { }
     }
 }

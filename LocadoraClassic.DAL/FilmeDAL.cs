@@ -156,7 +156,7 @@ namespace LocadoraClassic.DAL
             cmd.Parameters.Add(new MySqlParameter("@sinopse", filme.Sinopse));
             cmd.Parameters.Add(new MySqlParameter("@locado", filme.Locado));
             cmd.Parameters.Add(new MySqlParameter("@id_genero", filme.Genero.Id));
-            cmd.Parameters.Add(new MySqlParameter("@id_categoria", filme.Sinopse));
+            cmd.Parameters.Add(new MySqlParameter("@id_categoria", filme.Categoria.Id));
             cmd.Parameters.Add(new MySqlParameter("@id", filme.Id));
             cmd.ExecuteNonQuery();
             conn.Instance.Close();

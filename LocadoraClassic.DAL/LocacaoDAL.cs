@@ -17,7 +17,7 @@ namespace LocadoraClassic.DAL
             {
                 conn.Instance.Open();
             }
-            string query = "INSERT INTO locacao(id_locacao,data_locacao,data_devolucao,id_filme) values(@id_locacao,@data_locacao,@data_devolucao,@id_filme)";
+            string query = "INSERT INTO locacao(id_locacao,data_locacao,data_devolucao,id_filme,id_cliente) values(@id_locacao,@data_locacao,@data_devolucao,@id_filme,@id_cliente)";
             MySqlCommand cmd = conn.Instance.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
@@ -28,6 +28,7 @@ namespace LocadoraClassic.DAL
                 cmd.Parameters.Add(new MySqlParameter("@data_locacao", locacao.DataLocacao));
                 cmd.Parameters.Add(new MySqlParameter("@data_devolucao",locacao.DataDevolucao));
                 cmd.Parameters.Add(new MySqlParameter("@id_filme", Convert.ToInt32(filme["Id"])));
+                cmd.Parameters.Add(new MySqlParameter("@id_cliente", locacao.Cliente.Id));
                 cmd.ExecuteNonQuery();
             }
             conn.Instance.Close();

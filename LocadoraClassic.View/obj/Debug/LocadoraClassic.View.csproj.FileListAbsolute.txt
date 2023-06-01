@@ -47,3 +47,9 @@ C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\K4os.
 C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\System.Buffers.xml
 C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\obj\Debug\LocadoraClassic.View.csproj.CopyComplete
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\IMDbApiLib.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\LocadoraClassic.API.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\LocadoraClassic.API.pdb
+C:\Users\ALUNO\source\repos\LocadoraClassic\LocadoraClassic.View\bin\Debug\Newtonsoft.Json.xml

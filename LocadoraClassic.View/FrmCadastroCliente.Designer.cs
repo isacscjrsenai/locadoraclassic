@@ -98,7 +98,7 @@
             // maskedTxtCPFCliente
             // 
             this.maskedTxtCPFCliente.Location = new System.Drawing.Point(494, 64);
-            this.maskedTxtCPFCliente.Mask = "000.000.000-00";
+            this.maskedTxtCPFCliente.Mask = "000,000,000-00";
             this.maskedTxtCPFCliente.Name = "maskedTxtCPFCliente";
             this.maskedTxtCPFCliente.Size = new System.Drawing.Size(85, 20);
             this.maskedTxtCPFCliente.TabIndex = 5;

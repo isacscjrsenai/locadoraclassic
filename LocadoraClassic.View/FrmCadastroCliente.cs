@@ -24,8 +24,11 @@ namespace LocadoraClassic.View
         private void button1_Click(object sender, EventArgs e)
         {
             var nome = txtNomeCliente.Text;
+            maskedTxtRGCliente.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             var rg = maskedTxtRGCliente.Text;
+            maskedTxtCPFCliente.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             var cpf = maskedTxtCPFCliente.Text;
+            maskedTxtTelefoneCliente.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             var tel = maskedTxtTelefoneCliente.Text;
             var endereco = txtEnderecoCliente.Text;
             Cliente cliente = new Cliente();

@@ -58,8 +58,14 @@ namespace LocadoraClassic.View
                 foreach (DataGridViewRow seletedRow in seletedRows)
                 {
                     var filme = filmeDAL.ObterFilme(Convert.ToInt32(seletedRow.Cells["Id"].Value.ToString()));
-
-                    filmesSelecionados.Add(filme);
+                    if (filme.Locado)
+                    {
+                        MessageBox.Show($"O filme {filme.Nome} está locado","Locadora Classic");
+                    }
+                    else
+                    {
+                        filmesSelecionados.Add(filme);
+                    }
                 }
             }
             CarregaGridLocados(filmesSelecionados);
@@ -143,7 +149,7 @@ namespace LocadoraClassic.View
             string cpf = maskedTxtCPF.Text;
             cbCliente.DataSource = clienteDAL.ObterClientePorCPF(cpf);
             cbCliente.Refresh();
-            cbCliente.Text = null;
+            //cbCliente.Text = null;
             //MessageBox.Show("Teste");
         }
 
@@ -162,22 +168,23 @@ namespace LocadoraClassic.View
 
         private void btnFinalizaLocacao_Click(object sender, EventArgs e)
         {
-
+            Cliente cliente = (Cliente)cbCliente.SelectedItem;
             Locacao locacao = new Locacao
             {
                 Id = (int)locacaoDAL.GetNextId(),
                 DataLocacao = dtpLocacao.Value.Date,
                 DataDevolucao = dtpDevolucao.Value.Date,
                 FilmesLocados = filmesLocados,
-                ValorTotal = valorTotal
+                ValorTotal = valorTotal,
+                Cliente = cliente,
             };
             locacaoDAL.AdicionaLocacao(locacao);
-            MessageBox.Show($"Locação realizada\nValor Total:R${valorTotal}");
+            MessageBox.Show($"Locação realizada\nPara o Cliente:{locacao.Cliente.Nome}\nValor Total:R${valorTotal}");
             AtualizaStatusDeLocacao();
             dgvLocados.Rows.Clear(); //limpa a tabela de locação
             filmesLocados.Clear(); //Limpa a lista de filmes locados
             AtualizaValorTotal();
-
+            
         }
 
         private void AtualizaStatusDeLocacao()
