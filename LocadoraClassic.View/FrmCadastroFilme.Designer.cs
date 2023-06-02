@@ -34,7 +34,7 @@
             this.cbGenero = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNomeFilme = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BannerFilme = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSinopse = new System.Windows.Forms.TextBox();
@@ -48,7 +48,8 @@
             this.dgvPossibilidades = new System.Windows.Forms.DataGridView();
             this.labelPossibilidade = new System.Windows.Forms.Label();
             this.btnPesquisaFilme = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.trailer = new System.Windows.Forms.WebBrowser();
+            ((System.ComponentModel.ISupportInitialize)(this.BannerFilme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPossibilidades)).BeginInit();
             this.SuspendLayout();
@@ -103,13 +104,15 @@
             this.txtNomeFilme.Size = new System.Drawing.Size(359, 20);
             this.txtNomeFilme.TabIndex = 5;
             // 
-            // pictureBox1
+            // BannerFilme
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(417, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(371, 390);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.BannerFilme.InitialImage = global::LocadoraClassic.View.Properties.Resources.charlie;
+            this.BannerFilme.Location = new System.Drawing.Point(417, 25);
+            this.BannerFilme.Name = "BannerFilme";
+            this.BannerFilme.Size = new System.Drawing.Size(371, 390);
+            this.BannerFilme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BannerFilme.TabIndex = 6;
+            this.BannerFilme.TabStop = false;
             // 
             // label4
             // 
@@ -210,6 +213,7 @@
             this.dgvPossibilidades.Name = "dgvPossibilidades";
             this.dgvPossibilidades.Size = new System.Drawing.Size(776, 136);
             this.dgvPossibilidades.TabIndex = 17;
+            this.dgvPossibilidades.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPossibilidades_CellMouseClick);
             // 
             // labelPossibilidade
             // 
@@ -231,11 +235,20 @@
             this.btnPesquisaFilme.UseVisualStyleBackColor = true;
             this.btnPesquisaFilme.Click += new System.EventHandler(this.btnPesquisaFilme_Click);
             // 
+            // trailer
+            // 
+            this.trailer.Location = new System.Drawing.Point(795, 25);
+            this.trailer.MinimumSize = new System.Drawing.Size(20, 20);
+            this.trailer.Name = "trailer";
+            this.trailer.Size = new System.Drawing.Size(872, 502);
+            this.trailer.TabIndex = 20;
+            // 
             // FrmCadastroFilme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 936);
+            this.ClientSize = new System.Drawing.Size(1679, 936);
+            this.Controls.Add(this.trailer);
             this.Controls.Add(this.btnPesquisaFilme);
             this.Controls.Add(this.labelPossibilidade);
             this.Controls.Add(this.dgvPossibilidades);
@@ -249,7 +262,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.maskedTxtDuracao);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.BannerFilme);
             this.Controls.Add(this.txtNomeFilme);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbGenero);
@@ -259,7 +272,7 @@
             this.Name = "FrmCadastroFilme";
             this.Text = "LOCADORA CLASSIC - Cadastro de Filme";
             this.Load += new System.EventHandler(this.FrmCadastroFilme_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BannerFilme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPossibilidades)).EndInit();
             this.ResumeLayout(false);
@@ -275,7 +288,7 @@
         private System.Windows.Forms.ComboBox cbGenero;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNomeFilme;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox BannerFilme;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSinopse;
@@ -289,5 +302,6 @@
         private System.Windows.Forms.DataGridView dgvPossibilidades;
         private System.Windows.Forms.Label labelPossibilidade;
         private System.Windows.Forms.Button btnPesquisaFilme;
+        private System.Windows.Forms.WebBrowser trailer;
     }
 }

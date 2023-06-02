@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using IMDbApiLib.Models;
 
 namespace LocadoraClassic.View
 {
@@ -119,11 +119,37 @@ namespace LocadoraClassic.View
             CarregarGrid();
         }
 
-        private void btnPesquisaFilme_Click(object sender, EventArgs e)
+        private async void  btnPesquisaFilme_Click(object sender, EventArgs e)
         {
             var NomeFilme = txtNomeFilme.Text;
-            var titleData = new ImdbApi().GetTitle(NomeFilme);
-            MessageBox.Show($"{titleData.Result.Results[0].Title}");
+            var titleDataTask= new ImdbApi().GetTitles(NomeFilme);
+
+            var titleData = await titleDataTask;
+            //MessageBox.Show($"{titleData.Results[0].Title}");
+            dgvPossibilidades.DataSource = titleData.Results;
+        }
+
+        private async void dgvPossibilidades_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvPossibilidades.Rows[e.RowIndex];
+                //seleciona a linha inteira
+                row.Selected = true;
+            }
+            if (dgvPossibilidades.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvPossibilidades.SelectedRows[0];
+                var id = row.Cells["Id"].Value.ToString();
+                var titleDataTask = new ImdbApi().GetTitle(id);
+                var filme = await titleDataTask;
+                
+                txtNomeFilme.Text = filme.Title.ToString();
+                //txtSinopse.Text = filme[0].Description.ToString();
+                txtSinopse.Text = row.Cells["Description"].Value.ToString();
+                BannerFilme.ImageLocation = filme.Image;
+                trailer.Url = new Uri(filme.Trailer.Link.ToString());
+            }
         }
     }
 }
